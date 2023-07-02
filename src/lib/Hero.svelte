@@ -5,7 +5,7 @@
 				'Get me the top 5 stories on Hacker News in markdown table format. Use columns like title, link, score, and comments.'
 		},
 		{
-			title: 'Summarize the comments in the top hacker news story.'
+			title: 'Summarize the CVE-2023-20119.'
 		},
 		{
 			title: 'What is the top story on Hacker News right now?'
