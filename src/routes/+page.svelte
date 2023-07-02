@@ -1,10 +1,12 @@
 <script lang="ts">
 	import Footer from '$lib/Footer.svelte';
 	import Hero from '$lib/Hero.svelte';
+	import Bot from '$lib/icons/Bot.svelte';
 	import Cisco from '$lib/icons/Cisco.svelte';
 	import Github from '$lib/icons/Github.svelte';
 	import LoadingCircle from '$lib/icons/LoadingCircle.svelte';
 	import Send from '$lib/icons/Send.svelte';
+	import User from '$lib/icons/User.svelte';
 
 	import { useChat } from 'ai/svelte';
 
@@ -14,9 +16,11 @@
 
 	$: {
 		disabled = $isLoading || $input.length === 0;
-
-		console.log('messages', $messages);
 	}
+
+	// $: messages {
+	// 	console.log('messages', $messages);
+	// }
 </script>
 
 <svelte:head>
@@ -38,7 +42,35 @@
 			><Github /></a
 		>
 	</div>
-	<Hero />
+
+	{#if $messages.length > 0}
+		{#each $messages as message}
+			<div
+				class={`flex w-full items-center justify-center border-b border-gray-200 py-8 ${
+					message.role === 'user' ? 'bg-white' : 'bg-gray-100'
+				}`}
+			>
+				<div class="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
+					<div
+						class={`p-1.5 text-white rounded-full w-10 h-10 flex justify-center ${
+							message.role === 'assistant' ? 'bg-sky-500' : 'bg-black'
+						}`}
+					>
+						{#if message.role === 'user'}
+							<User />
+						{:else}
+							<Bot />
+						{/if}
+					</div>
+					<div class="prose mt-1 w-full break-words prose-p:leading-relaxed">
+						{message.content}
+					</div>
+				</div>
+			</div>
+		{/each}
+	{:else}
+		<Hero />
+	{/if}
 	<div
 		class="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0"
 	>
@@ -56,7 +88,7 @@
 				style="height: 24px !important;"
 				bind:value={$input}
 			/><button
-				class={`absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all cursor-not-allowed ${
+				class={`cursor absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all cursor-not-allowed ${
 					disabled ? 'cursor-not-allowed bg-white' : 'bg-green-500 hover:bg-green-600'
 				}`}
 				{disabled}

@@ -26,7 +26,6 @@ export const POST = (async ({ request }) => {
 	let responseAPI = null;
 	if (response.ok) {
 		responseAPI = await response.json();
-		console.log('responseAPI', responseAPI);
 	}
 
 	return new Response(responseAPI);
