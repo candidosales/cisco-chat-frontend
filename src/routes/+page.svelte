@@ -14,6 +14,8 @@
 
 	$: {
 		disabled = $isLoading || $input.length === 0;
+
+		console.log('messages', $messages);
 	}
 </script>
 
@@ -46,7 +48,7 @@
 		>
 			<textarea
 				tabindex="0"
-				required=""
+				required
 				rows="1"
 				placeholder="Send a message"
 				spellcheck="false"

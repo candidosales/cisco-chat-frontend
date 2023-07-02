@@ -6,6 +6,11 @@ declare global {
 		// interface Locals {}
 		// interface PageData {}
 		// interface Platform {}
+
+		interface Message {
+			role: 'user' | 'assistant';
+			content: string;
+		}
 	}
 }
 
