@@ -17,15 +17,20 @@
 	$: {
 		disabled = $isLoading || $input.length === 0;
 	}
-
-	// $: messages {
-	// 	console.log('messages', $messages);
-	// }
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Cisco ChatGPT - Security Advisories</title>
+	<meta name="description" content="Cisco ChatGPT - Security Advisories" />
+	<meta name="robots" content="index,follow" />
+	<meta name="googlebot" content="index,follow" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Cisco ChatGPT - Security Advisories" />
+	<meta
+		property="og:description"
+		content="If you have any doubts regarding security advisories, I am here to help you clarify them"
+	/>
 </svelte:head>
 
 <main class="flex flex-col items-center justify-between pb-40">

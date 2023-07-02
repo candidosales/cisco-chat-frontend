@@ -19,7 +19,7 @@
 		<p class="text-gray-500">
 			This is an<!-- -->
 			<a
-				href="https://github.com/steven-tey/chathn"
+				href="https://github.com/candidosales/cisco-chat-backend"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="font-medium underline underline-offset-4 transition-colors hover:text-black"
@@ -27,7 +27,7 @@
 			>
 			<!-- -->AI chatbot that uses<!-- -->
 			<a
-				href="https://platform.openai.com/docs/guides/gpt/function-calling"
+				href="https://platform.openai.com/docs/guides/gpt/chat-completions-api"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="font-medium underline underline-offset-4 transition-colors hover:text-black"

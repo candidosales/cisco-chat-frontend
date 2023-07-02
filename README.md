@@ -2,7 +2,7 @@
 
 ## Project
 
-- [Svelte Kit](https://kit.svelte.dev/)
+- [SvelteKit](https://kit.svelte.dev/)
 - [Tailwind](https://tailwindcss.com/)
 - [Backend in FastAPI](https://github.com/candidosales/cisco-chat-backend)
 

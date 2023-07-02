@@ -1,6 +1,7 @@
 {
-	"name": "chat-frontend",
+	"name": "cisco-chat-frontend",
 	"version": "0.0.1",
+	"author": "Candido Sales Gomes <candidosg@gmail.com>",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
