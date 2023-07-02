@@ -1,4 +1,4 @@
-# Cisco ChatGPT Security Advisories - Fronted
+# Cisco ChatGPT Security Advisories - Frontend
 
 ## Project
 
