@@ -3,19 +3,18 @@
 	import Hero from '$lib/Hero.svelte';
 	import Cisco from '$lib/icons/Cisco.svelte';
 	import Github from '$lib/icons/Github.svelte';
+	import LoadingCircle from '$lib/icons/LoadingCircle.svelte';
+	import Send from '$lib/icons/Send.svelte';
 
-	const questionOptions = [
-		{
-			title:
-				'Get me the top 5 stories on Hacker News in markdown table format. Use columns like title, link, score, and comments.'
-		},
-		{
-			title: 'Summarize the comments in the top hacker news story.'
-		},
-		{
-			title: 'What is the top story on Hacker News right now?'
-		}
-	];
+	import { useChat } from 'ai/svelte';
+
+	const { input, handleSubmit, messages, isLoading } = useChat();
+
+	let disabled = false;
+
+	$: {
+		disabled = $isLoading || $input.length === 0;
+	}
 </script>
 
 <svelte:head>
@@ -43,31 +42,29 @@
 	>
 		<form
 			class="relative w-full max-w-screen-md rounded-xl border border-gray-200 bg-white px-4 pb-2 pt-3 shadow-lg sm:pb-3 sm:pt-4"
+			on:submit={handleSubmit}
 		>
 			<textarea
 				tabindex="0"
 				required=""
 				rows="1"
-				autofocus=""
 				placeholder="Send a message"
 				spellcheck="false"
 				class="w-full pr-10 focus:outline-none"
 				style="height: 24px !important;"
+				bind:value={$input}
 			/><button
-				class="absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all cursor-not-allowed bg-white"
-				disabled=""
-				><svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 16 16"
-					fill="none"
-					class="h-4 w-4 text-gray-300"
-					stroke-width="2"
-					><path
-						d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"
-						fill="currentColor"
-					/></svg
-				></button
+				class={`absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all cursor-not-allowed ${
+					disabled ? 'cursor-not-allowed bg-white' : 'bg-green-500 hover:bg-green-600'
+				}`}
+				{disabled}
+				type="submit"
 			>
+				{#if $isLoading}
+					<LoadingCircle />
+				{:else}
+					<Send class={`h-4 w-4 ${$input.length === 0 ? 'text-gray-300' : 'text-white'}`} />{/if}
+			</button>
 		</form>
 		<Footer />
 	</div>
