@@ -1,4 +1,5 @@
 import { PRIVATE_API_URL } from '$env/static/private';
+import { marked } from 'marked'; // import the marked lib
 
 import type { RequestHandler } from './$types';
 
@@ -28,5 +29,5 @@ export const POST = (async ({ request }) => {
 		responseAPI = await response.json();
 	}
 
-	return new Response(responseAPI);
+	return new Response(marked.parse(responseAPI.content));
 }) satisfies RequestHandler;

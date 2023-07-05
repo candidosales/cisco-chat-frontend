@@ -2,15 +2,17 @@
 	const questionOptions = [
 		{
 			title:
-				'Get me the top 5 stories on Hacker News in markdown table format. Use columns like title, link, score, and comments.'
+				'Get me the top 5 CVE Securities in markdown table format. Use columns like title, severity and summary.'
 		},
 		{
 			title: 'Summarize the CVE-2023-20119.'
 		},
 		{
-			title: 'What is the top story on Hacker News right now?'
+			title: 'How to fix Cisco Webex Meetings Web UI Vulnerabilities?	'
 		}
 	];
+
+	export let questionSelected = '';
 </script>
 
 <div class="border-gray-200sm:mx-0 mx-5 mt-20 max-w-screen-md rounded-md border sm:w-full">
@@ -48,6 +50,7 @@
 		{#each questionOptions as q}
 			<button
 				class="rounded-md border border-gray-200 bg-white px-5 py-3 text-left text-sm text-gray-500 transition-all duration-75 hover:border-black hover:text-gray-700 active:bg-gray-50"
+				on:click={() => questionSelected = q.title}
 				>{q.title}</button
 			>
 		{/each}

@@ -13,9 +13,21 @@
 	const { input, handleSubmit, messages, isLoading } = useChat();
 
 	let disabled = false;
+	let questionSelected = '';
 
 	$: {
 		disabled = $isLoading || $input.length === 0;
+
+		if (questionSelected !== '') {
+			$input = questionSelected;
+		}
+	}
+
+	const submitForm = (e: Event):void => {
+		console.log('submitForm', e);
+		handleSubmit(e);
+		$input = '';
+		questionSelected = '';
 	}
 </script>
 
@@ -67,21 +79,21 @@
 							<Bot />
 						{/if}
 					</div>
-					<div class="prose mt-1 w-full break-words prose-p:leading-relaxed">
-						{message.content}
+					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
+						{@html message.content}
 					</div>
 				</div>
 			</div>
 		{/each}
 	{:else}
-		<Hero />
+		<Hero bind:questionSelected={questionSelected}/>
 	{/if}
 	<div
 		class="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0"
 	>
 		<form
 			class="relative w-full max-w-screen-md rounded-xl border border-gray-200 bg-white px-4 pb-2 pt-3 shadow-lg sm:pb-3 sm:pt-4"
-			on:submit={handleSubmit}
+			on:submit={submitForm}
 		>
 			<textarea
 				tabindex="0"
@@ -93,8 +105,8 @@
 				style="height: 24px !important;"
 				bind:value={$input}
 			/><button
-				class={`cursor absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all cursor-not-allowed ${
-					disabled ? 'cursor-not-allowed bg-white' : 'bg-green-500 hover:bg-green-600'
+				class={`absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all ${
+					disabled ? 'cursor-not-allowed bg-white' : 'cursor bg-green-500 hover:bg-green-600'
 				}`}
 				{disabled}
 				type="submit"
