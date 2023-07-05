@@ -1,5 +1,5 @@
 import { PRIVATE_API_URL } from '$env/static/private';
-import { marked } from 'marked'; // import the marked lib
+import { marked } from 'marked';
 
 import type { RequestHandler } from './$types';
 
