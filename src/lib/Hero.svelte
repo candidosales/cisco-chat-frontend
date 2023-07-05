@@ -19,14 +19,7 @@
 	<div class="flex flex-col space-y-4 p-7 sm:p-10">
 		<h1 class="text-lg font-semibold text-black">Welcome to Cisco Chat Security Advisories!</h1>
 		<p class="text-gray-500">
-			This is an<!-- -->
-			<a
-				href="https://github.com/candidosales/cisco-chat-backend"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="font-medium underline underline-offset-4 transition-colors hover:text-black"
-				>open-source</a
-			>
+			This is an
 			<!-- -->AI chatbot that uses<!-- -->
 			<a
 				href="https://platform.openai.com/docs/guides/gpt/chat-completions-api"
