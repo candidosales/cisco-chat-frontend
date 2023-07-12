@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Footer from '$lib/Footer.svelte';
+	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
+	import Typing from '$lib/Typing.svelte';
 	import Bot from '$lib/icons/Bot.svelte';
-	import Cisco from '$lib/icons/Cisco.svelte';
-	import Github from '$lib/icons/Github.svelte';
 	import LoadingCircle from '$lib/icons/LoadingCircle.svelte';
 	import Send from '$lib/icons/Send.svelte';
 	import User from '$lib/icons/User.svelte';
@@ -16,7 +16,7 @@
 	let questionSelected = '';
 
 	$: {
-		disabled = $isLoading || $input.length === 0;
+		disabled = $isLoading;
 
 		if (questionSelected !== '') {
 			$input = questionSelected;
@@ -46,22 +46,11 @@
 </svelte:head>
 
 <main class="flex flex-col items-center justify-between pb-40">
-	<div class="absolute top-5 hidden w-full justify-between px-5 sm:flex">
-		<a
-			href="/"
-			target="_blank"
-			class="rounded-lg p-2 transition-colors duration-200 hover:bg-stone-100 sm:bottom-auto w-4"
-			><Cisco class="w-16 text-sky-400" /></a
-		><a
-			href="/github"
-			target="_blank"
-			class="rounded-lg p-2 transition-colors duration-200 hover:bg-stone-100 sm:bottom-auto"
-			><Github /></a
-		>
-	</div>
+	<Header/>
 
 	{#if $messages.length > 0}
 		{#each $messages as message}
+			
 			<div
 				class={`flex w-full items-center justify-center border-b border-gray-200 py-8 ${
 					message.role === 'user' ? 'bg-white' : 'bg-gray-100'
@@ -79,11 +68,27 @@
 							<Bot />
 						{/if}
 					</div>
-					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
+					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">						
 						{@html message.content}
 					</div>
 				</div>
 			</div>
+			{#if $isLoading}
+				<div
+					class={`flex w-full items-center justify-center border-b border-gray-200 py-8 bg-gray-100`}
+				>
+					<div class="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
+						<div
+							class={`p-1.5 text-white rounded-full w-10 h-10 flex justify-center bg-sky-500`}
+						>
+							<Bot />	
+						</div>
+						<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
+							<Typing/>
+						</div>
+					</div>
+				</div>
+			{/if}
 		{/each}
 	{:else}
 		<Hero bind:questionSelected={questionSelected}/>
@@ -106,7 +111,7 @@
 				bind:value={$input}
 			/><button
 				class={`absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all ${
-					disabled ? 'cursor-not-allowed bg-white' : 'cursor bg-green-500 hover:bg-green-600'
+					disabled ? 'cursor-not-allowed bg-gray-300' : 'cursor bg-green-500 hover:bg-green-600'
 				}`}
 				{disabled}
 				type="submit"
@@ -114,7 +119,7 @@
 				{#if $isLoading}
 					<LoadingCircle />
 				{:else}
-					<Send class={`h-4 w-4 ${$input.length === 0 ? 'text-gray-300' : 'text-white'}`} />{/if}
+					<Send class={`h-4 w-4 ${$input.length === 0 ? 'text-gray-100' : 'text-white'}`} />{/if}
 			</button>
 		</form>
 		<Footer />
