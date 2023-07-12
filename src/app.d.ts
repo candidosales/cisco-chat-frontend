@@ -11,6 +11,17 @@ declare global {
 			role: 'user' | 'assistant';
 			content: string;
 		}
+
+		interface ResponseMessage {
+			query: string;
+			result: string;
+			source_documents: SourceDocument[];
+		}
+
+		interface SourceDocument {
+			page_content: string;
+			metadata: any;
+		}
 	}
 }
 

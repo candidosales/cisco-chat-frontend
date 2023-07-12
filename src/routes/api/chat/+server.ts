@@ -24,10 +24,10 @@ export const POST = (async ({ request }) => {
 		}
 	});
 
-	let responseAPI = null;
+	let responseAPI: App.ResponseMessage | null = null;
 	if (response.ok) {
 		responseAPI = await response.json();
 	}
 
-	return new Response(marked.parse(responseAPI.content));
+	return new Response(marked.parse(responseAPI?.result ?? ''));
 }) satisfies RequestHandler;
