@@ -1,6 +1,8 @@
 import { PRIVATE_API_URL } from '$env/static/private';
 import { marked } from 'marked';
 
+marked.use({ silent: true });
+
 import type { RequestHandler } from './$types';
 
 export const POST = (async ({ request }) => {
@@ -10,14 +12,7 @@ export const POST = (async ({ request }) => {
 		method: 'POST',
 		body: JSON.stringify({
 			conversation_id: '1',
-			messages: [
-				{
-					content: {
-						content_type: 'text',
-						message: messages[0].content
-					}
-				}
-			]
+			messages: messages
 		}),
 		headers: {
 			'Content-Type': 'application/json'
@@ -29,5 +24,5 @@ export const POST = (async ({ request }) => {
 		responseAPI = await response.json();
 	}
 
-	return new Response(marked.parse(responseAPI?.result ?? ''));
+	return new Response(marked.parse(responseAPI?.answer ?? ''));
 }) satisfies RequestHandler;

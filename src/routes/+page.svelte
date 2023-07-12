@@ -14,6 +14,7 @@
 
 	let disabled = false;
 	let questionSelected = '';
+	let submitButtonElement: HTMLButtonElement;
 
 	$: {
 		disabled = $isLoading;
@@ -23,11 +24,16 @@
 		}
 	}
 
-	const submitForm = (e: Event):void => {
-		console.log('submitForm', e);
+	const submitForm = (e: SubmitEvent):void => {
 		handleSubmit(e);
 		$input = '';
 		questionSelected = '';
+	}
+
+	const handleKeydown = (e: KeyboardEvent) => {
+		 if (e.key === 'Enter' && submitButtonElement) {
+			submitButtonElement.click();
+		 }
 	}
 </script>
 
@@ -73,23 +79,23 @@
 					</div>
 				</div>
 			</div>
-			{#if $isLoading}
-				<div
-					class={`flex w-full items-center justify-center border-b border-gray-200 py-8 bg-gray-100`}
-				>
-					<div class="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
-						<div
-							class={`p-1.5 text-white rounded-full w-10 h-10 flex justify-center bg-sky-500`}
-						>
-							<Bot />	
-						</div>
-						<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
-							<Typing/>
-						</div>
+		{/each}
+		{#if $isLoading}
+			<div
+				class={`flex w-full items-center justify-center border-b border-gray-200 py-8 bg-gray-100`}
+			>
+				<div class="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
+					<div
+						class={`p-1.5 text-white rounded-full w-10 h-10 flex justify-center bg-sky-500`}
+					>
+						<Bot />	
+					</div>
+					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
+						<Typing/>
 					</div>
 				</div>
-			{/if}
-		{/each}
+			</div>
+		{/if}
 	{:else}
 		<Hero bind:questionSelected={questionSelected}/>
 	{/if}
@@ -97,7 +103,7 @@
 		class="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0"
 	>
 		<form
-			class="relative w-full max-w-screen-md rounded-xl border border-gray-200 bg-white px-4 pb-2 pt-3 shadow-lg sm:pb-3 sm:pt-4"
+			class="relative flex flex-row w-full max-w-screen-md rounded-xl border border-gray-200 bg-white px-4 pb-2 pt-3 shadow-lg sm:pb-3 sm:pt-4"
 			on:submit={submitForm}
 		>
 			<textarea
@@ -106,15 +112,17 @@
 				rows="1"
 				placeholder="Send a message"
 				spellcheck="false"
-				class="w-full pr-10 focus:outline-none"
-				style="height: 24px !important;"
+				class="resize-y w-full pr-12 mr-4 focus:outline-none"
 				bind:value={$input}
-			/><button
-				class={`absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all ${
+				on:keydown={handleKeydown}
+			/>
+			<button
+				class={`my-auto flex h-8 w-8 items-center justify-center rounded-md transition-all ${
 					disabled ? 'cursor-not-allowed bg-gray-300' : 'cursor bg-green-500 hover:bg-green-600'
 				}`}
 				{disabled}
 				type="submit"
+				bind:this={submitButtonElement}
 			>
 				{#if $isLoading}
 					<LoadingCircle />
