@@ -3,7 +3,7 @@
 	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
 	import Typing from '$lib/Typing.svelte';
-	import Bot from '$lib/icons/Bot.svelte';
+	import CiscoBridge from '$lib/icons/CiscoBridge.svelte';
 	import LoadingCircle from '$lib/icons/LoadingCircle.svelte';
 	import Send from '$lib/icons/Send.svelte';
 	import User from '$lib/icons/User.svelte';
@@ -71,7 +71,7 @@
 						{#if message.role === 'user'}
 							<User />
 						{:else}
-							<Bot />
+							<CiscoBridge class="w-16 text-white" />
 						{/if}
 					</div>
 					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">						
@@ -88,8 +88,8 @@
 					<div
 						class={`p-1.5 text-white rounded-full w-10 h-10 flex justify-center bg-sky-500`}
 					>
-						<Bot />	
-					</div>
+					<CiscoBridge class="w-16 text-white" />
+				</div>
 					<div class="prose prose-indigo prose-p:leading-relaxed mt-1 w-full break-words">
 						<Typing/>
 					</div>

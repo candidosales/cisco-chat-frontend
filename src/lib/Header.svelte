@@ -1,6 +1,7 @@
 <script>
 
 	import Cisco from "./icons/Cisco.svelte";
+	import CiscoBridge from "./icons/CiscoBridge.svelte";
 	import Github from "./icons/Github.svelte";
 
 </script>
@@ -9,7 +10,8 @@
         href="/"
         target="_blank"
         class="w-fit rounded-lg p-2 transition-colors duration-200 hover:bg-stone-100 sm:bottom-auto"
-        ><Cisco class="w-16 text-sky-400" /></a
+        ><Cisco class="w-16 text-sky-400" />        
+        </a
     ><a
         href="https://github.com/candidosales/cisco-chat-frontend"
         target="_blank"
