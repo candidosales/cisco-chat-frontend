@@ -122,6 +122,7 @@
 				}`}
 				{disabled}
 				type="submit"
+				title="Send message"
 				bind:this={submitButtonElement}
 			>
 				{#if $isLoading}
