@@ -2,7 +2,7 @@
 	const questionOptions = [
 		{
 			title:
-				'Get me the top 5 CVE Securities in markdown table format. Use columns like title, severity and summary.'
+				'Present the 5 most recent CVE Securities in markdown table format. Use columns like title, severity and summary.'
 		},
 		{
 			title: 'Summarize the CVE-2023-20119.'
