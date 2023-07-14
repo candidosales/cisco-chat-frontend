@@ -6,6 +6,18 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			class="transition-colors hover:text-black">OpenAI</a
+		>,
+		<a
+			href="https://python.langchain.com/docs/get_started/introduction.html"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="transition-colors hover:text-black">🦜️🔗 LangChain</a
+		>,
+		<a
+			href="https://www.trychroma.com/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="transition-colors hover:text-black">Chroma DB</a
 		>
 		<!-- -->and<!-- -->
 		<a
