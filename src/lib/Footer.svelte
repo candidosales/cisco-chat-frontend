@@ -27,4 +27,5 @@
 			class="transition-colors hover:text-black">View the repo</a
 		>.
 	</p>
+	<p class="text-center text-xs text-gray-400">The last data update was June 22, 2023</p>
 </footer>
