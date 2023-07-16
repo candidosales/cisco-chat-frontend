@@ -5,7 +5,9 @@
 - [SvelteKit](https://kit.svelte.dev/)
 - [Tailwind](https://tailwindcss.com/)
 - Deploy: [Vercel](https://vercel.com/)
-- [Backend in FastAPI](https://github.com/candidosales/cisco-chat-backend)
+- Rate-limit: [Upstash](https://upstash.com/blog/sveltekit-rate-limiting)
+
+Check out how the backend was [made](https://github.com/candidosales/cisco-chat-backend)
 
 ## Developing
 
