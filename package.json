@@ -16,6 +16,8 @@
 	},
 	"dependencies": {
 		"@tailwindcss/typography": "^0.5.9",
+		"@upstash/ratelimit": "^0.4.3",
+		"@upstash/redis": "^1.22.0",
 		"ai": "2.1.19",
 		"marked": "^5.1.1"
 	},
