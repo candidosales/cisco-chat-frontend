@@ -17,7 +17,7 @@
 
 <div class="border-gray-200sm:mx-0 mx-5 mt-20 max-w-screen-md rounded-md border sm:w-full">
 	<div class="flex flex-col space-y-4 p-7 sm:p-10">
-		<h1 class="text-lg font-semibold text-black">Welcome to Cisco Chat Security Advisories!</h1>
+		<h1 class="text-lg font-semibold text-black">Welcome to Cisco ChatGPT Security Advisories!</h1>
 		<p class="text-gray-500">
 			This is an
 			<!-- -->AI chatbot that uses<!-- -->

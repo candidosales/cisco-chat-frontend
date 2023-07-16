@@ -39,7 +39,7 @@
 
 <svelte:head>
 	<title>Cisco ChatGPT - Security Advisories</title>
-	<meta name="description" content="Cisco ChatGPT - Security Advisories" />
+	<meta name="description" content="This is an AI chatbot that uses OpenAI and Security Advisories data to interact with the natural language." />
 	<meta name="robots" content="index,follow" />
 	<meta name="googlebot" content="index,follow" />
 
@@ -47,7 +47,7 @@
 	<meta property="og:title" content="Cisco ChatGPT - Security Advisories" />
 	<meta
 		property="og:description"
-		content="If you have any doubts regarding security advisories, I am here to help you clarify them"
+		content="This is an AI chatbot that uses OpenAI and Security Advisories data to interact with the natural language."
 	/>
 </svelte:head>
 
