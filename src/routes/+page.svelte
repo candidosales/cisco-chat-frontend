@@ -69,7 +69,7 @@
 						}`}
 					>
 						{#if message.role === 'user'}
-							<User />
+							<User  class="w-16 text-white" />
 						{:else}
 							<CiscoBridge class="w-16 text-white" />
 						{/if}

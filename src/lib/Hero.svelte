@@ -25,7 +25,7 @@
 				href="https://platform.openai.com/docs/guides/gpt/chat-completions-api"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium underline underline-offset-4 transition-colors hover:text-black"
+				class="font-medium underline underline-offset-4 transition-colors hover:text-black after:content-['_↗']"
 				>OpenAI</a
 			>
 			<!-- -->and<!-- -->
@@ -33,11 +33,12 @@
 				href="https://sec.cloudapps.cisco.com/security/center/publicationListing.x"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="font-medium underline underline-offset-4 transition-colors hover:text-black"
+				class="font-medium underline underline-offset-4 transition-colors hover:text-black after:content-['_↗']"
 				>Security Advisories data</a
 			>
 			to interact with the natural language.
 		</p>
+		<p class="text-gray-500 text-sm">It isn't an official Cisco product.</p>
 	</div>
 	<div class="flex flex-col space-y-4 border-t border-gray-200 bg-gray-50 p-7 sm:p-10">
 		{#each questionOptions as q}

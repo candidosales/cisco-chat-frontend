@@ -4,6 +4,7 @@
 
 - [SvelteKit](https://kit.svelte.dev/)
 - [Tailwind](https://tailwindcss.com/)
+- Deploy: [Vercel](https://vercel.com/)
 - [Backend in FastAPI](https://github.com/candidosales/cisco-chat-backend)
 
 ## Developing
