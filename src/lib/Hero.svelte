@@ -2,7 +2,7 @@
 	const questionOptions = [
 		{
 			title:
-				'Present the 5 most recent CVE Securities in markdown table format. Use columns like title, severity and summary.'
+				'When Cisco Small Business Series Switches Buffer Overflow Vulnerabilities was published?'
 		},
 		{
 			title: 'Summarize the CVE-2023-20119.'
