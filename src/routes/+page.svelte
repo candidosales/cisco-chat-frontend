@@ -52,7 +52,9 @@
 </svelte:head>
 
 <main class="flex flex-col items-center justify-between pb-40">
-	<Header/>
+	{#if $messages.length === 0}
+		<Header/>
+	{/if}
 
 	{#if $messages.length > 0}
 		{#each $messages as message}
