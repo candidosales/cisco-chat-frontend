@@ -52,9 +52,10 @@
 </svelte:head>
 
 <main class="flex flex-col items-center justify-between pb-40">
-	{#if $messages.length === 0}
+
+	<div class={`w-full ${$messages.length === 0 ? 'visible' : 'invisible md:invisible lg:visible'}`}>
 		<Header/>
-	{/if}
+	</div>
 
 	{#if $messages.length > 0}
 		{#each $messages as message}
