@@ -38,14 +38,17 @@
 			>
 			to interact with the natural language.
 		</p>
-		<p class="text-gray-500 text-sm">It isn't an official Cisco product.</p>
+		<p
+			class="text-sm items-center px-2.5 py-0.5 rounded-full font-medium bg-yellow-100 text-yellow-800 mr-2 w-fit"
+		>
+			It isn't an official Cisco product.
+		</p>
 	</div>
 	<div class="flex flex-col space-y-4 border-t border-gray-200 bg-gray-50 p-7 sm:p-10">
 		{#each questionOptions as q}
 			<button
 				class="rounded-md border border-gray-200 bg-white px-5 py-3 text-left text-sm text-gray-500 transition-all duration-75 hover:border-black hover:text-gray-700 active:bg-gray-50"
-				on:click={() => questionSelected = q.title}
-				>{q.title}</button
+				on:click={() => (questionSelected = q.title)}>{q.title}</button
 			>
 		{/each}
 	</div>
